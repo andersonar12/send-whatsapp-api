@@ -2,8 +2,9 @@ const { getQRImage, sendWhastAppMessage } = require("../whats-app");
 
 exports.getQRfromWs = async (req, res, next) => {
   console.log('SOLICITUD ENTRANDO');
+  let img = ''
   try {
-    const img = await getQRImage();
+    img = await getQRImage();
 
     console.log(img);
 

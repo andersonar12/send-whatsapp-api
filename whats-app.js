@@ -1,16 +1,42 @@
 const puppeteer = require("puppeteer");
 const fs = require("fs");
 const path = require('path');
-//Requerido por puppeteer
-let browser;
-let page;
-let interval;
 
-exports.getQRImage = async () => {
+
+//Requerido por puppeteer
+let browser 
+let page 
+
+const initBrowser = async () =>{
+
   browser = await puppeteer.launch({
     headless: false,
     userDataDir: "~/.config/chromium",
   });
+  
+}
+
+initBrowser()
+
+const getQRImage = async () => {
+  /* browser = await puppeteer.launch({
+    headless: false,
+    userDataDir: "~/.config/chromium",
+  }); */
+ 
+  if (page) {
+    page.close()
+  }
+  
+  /* fs.unlink(path.join(__dirname, 'public/img/codigo-qr.png'), function (err) {
+      
+    if (err) { 
+      console.log(err);
+    }
+    console.log('codigo-qr! deleted');
+  
+  });  */
+
   page = await browser.newPage();
   await page.setUserAgent('Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/61.0.3163.100 Safari/537.36');
   await page.goto("https://web.whatsapp.com");
@@ -22,8 +48,9 @@ exports.getQRImage = async () => {
     );
 
     return page
-      .screenshot({ path: path.join(__dirname, 'public/img/codigo-qr.png') })
-      .then(() => 'codigo-qr.png');
+        .screenshot({ path: path.join(__dirname, 'public/img/codigo-qr.png') })
+        .then(() => 'codigo-qr.png');
+
     /* const path = "codigo-qr.png"; */
     /* console.log("QR-code does not exist:", path); */
   } catch (error) {
@@ -31,12 +58,12 @@ exports.getQRImage = async () => {
   }
 };
 
-exports.sendWhastAppMessage = async (code, phone, message) => {
+const sendWhastAppMessage = async (code, phone, message) => {
   try {
-    browser = await puppeteer.launch({
+    /* browser = await puppeteer.launch({
       headless: true,
       userDataDir: "~/.config/chromium",
-    });
+    }); */
 
     page = await browser.newPage();
 
@@ -63,6 +90,11 @@ exports.sendWhastAppMessage = async (code, phone, message) => {
     console.log(err);
     return err;
   }
+}
+
+module.exports = {
+  sendWhastAppMessage,
+  getQRImage
 }
 
 // ENVIAR MENSAJES
