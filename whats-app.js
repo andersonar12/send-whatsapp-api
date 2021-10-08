@@ -27,7 +27,7 @@ const getQRImage = async () => {
   if (page) {
     page.close()
   }
-  
+
   /* fs.unlink(path.join(__dirname, 'public/img/codigo-qr.png'), function (err) {
       
     if (err) { 
@@ -60,10 +60,9 @@ const getQRImage = async () => {
 
 const sendWhastAppMessage = async (code, phone, message) => {
   try {
-    /* browser = await puppeteer.launch({
-      headless: true,
-      userDataDir: "~/.config/chromium",
-    }); */
+    if (page) {
+      page.close()
+    }
 
     page = await browser.newPage();
 
