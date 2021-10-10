@@ -1,3 +1,6 @@
 2021/10/08-16:34:19.863 aee5 Reusing MANIFEST /home/anderson/Escritorio/Proyectos de Node.js/puppeteer-ws/~/.config/chromium/Default/IndexedDB/https_web.whatsapp.com_0.indexeddb.leveldb/MANIFEST-000001
 2021/10/08-16:34:19.863 aee5 Recovering log #39
 2021/10/08-16:34:20.045 aee5 Reusing old log /home/anderson/Escritorio/Proyectos de Node.js/puppeteer-ws/~/.config/chromium/Default/IndexedDB/https_web.whatsapp.com_0.indexeddb.leveldb/000039.log 
+2021/10/08-16:41:29.720 b1cd Level-0 table #44: started
+2021/10/08-16:41:29.865 b1cd Level-0 table #44: 1219925 bytes OK
+2021/10/08-16:41:29.873 b1cd Delete type=0 #39
