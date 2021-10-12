@@ -9,11 +9,14 @@ let page
 
 const initBrowser = async () =>{
 
-  browser = await puppeteer.launch({
-    headless: false,
-    userDataDir: "~/.config/chromium",
-  });
-  
+  try {
+    browser = await puppeteer.launch({
+      headless: false,
+      userDataDir: "~/.config/chromium",
+    });  
+  } catch(err) {
+    console.log(err);
+  }
 }
 
 initBrowser()
