@@ -1,9 +1,11 @@
 const express = require('express');
-const { getQRfromWs, sendMessage } = require('../controllers/whatsapp.controller');
+const { getQRfromWs, sendMessage,checkLoggin,logoutUser } = require('../controllers/whatsapp.controller');
 
 const router = express.Router();
 
 router.route('/login').get(getQRfromWs);
+router.route('/logout').get(logoutUser);
+router.route('/check-login').get(checkLoggin);
 router.route('/sendmessage').post(sendMessage);
 
 module.exports = router;

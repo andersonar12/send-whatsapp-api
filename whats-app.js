@@ -1,3 +1,5 @@
+/* Aqui se concentra toda la logica para hacer Scrapping en WS WEB */
+
 const puppeteer = require("puppeteer");
 const fs = require("fs");
 const path = require('path');
@@ -19,23 +21,12 @@ const initBrowser = async () =>{
 initBrowser()
 
 const getQRImage = async () => {
-  /* browser = await puppeteer.launch({
-    headless: false,
-    userDataDir: "~/.config/chromium",
-  }); */
+
  
   if (page) {
     page.close()
   }
 
-  /* fs.unlink(path.join(__dirname, 'public/img/codigo-qr.png'), function (err) {
-      
-    if (err) { 
-      console.log(err);
-    }
-    console.log('codigo-qr! deleted');
-  
-  });  */
 
   page = await browser.newPage();
   await page.setUserAgent('Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/61.0.3163.100 Safari/537.36');
@@ -91,9 +82,79 @@ const sendWhastAppMessage = async (code, phone, message) => {
   }
 }
 
+const isLogged = async ()=>{
+
+  try {
+
+    if (page) {
+      page.close()
+    }
+
+    page = await browser.newPage();
+
+    await page.setUserAgent('Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/61.0.3163.100 Safari/537.36');
+
+    await page.goto(`https://web.whatsapp.com/`);
+
+    await page.waitForSelector(
+      "#side > header > div.YtmXM > div > img",
+      /* { timeout: 60000 } */
+    );
+
+    const target = await page.$( "#side > header > div.YtmXM > div > img"); //cuando clickea imagen de perfil
+
+    await target.click();
+
+    const userProfile = await page.$('#app > div._1ADa8._3Nsgw.app-wrapper-web.font-fix.os-win > div._1XkO3.two > div._3ArsE > div.ldL67._2i3T7 > span > div._1N4rE > span > div.nBIOd.tm2tP.copyable-area > div > div:nth-child(2) > div._10Mbz.q_gDO > div._3mpG7._1M8UY > div > div._13NKt.copyable-text.selectable-text')
+    let value = await page.evaluate(el => el.textContent, userProfile)
+
+    return value //enviamos el Nombre de  Perfil de usuario
+
+  } catch (error) {
+    console.log(err);
+    return err;
+  }
+}
+
+const logoutUser = async ()=>{
+
+  try {
+
+    if (page) {
+      page.close()
+    }
+
+    page = await browser.newPage();
+
+    await page.setUserAgent('Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/61.0.3163.100 Safari/537.36');
+
+    await page.goto(`https://web.whatsapp.com/`);
+
+    await page.waitForSelector(
+      "#side > header > div.YtmXM > div > img",
+      { timeout: 60000 }
+    );
+
+    const target = await page.$( "#side > header > div._3yZPA > div > span > div:nth-child(3) > div > span"); //clickea en las opciones de Usuario
+
+    await target.click();
+
+    const clickLogout = await page.$("div [role='button'][aria-label='Cerrar sesión']")
+    await clickLogout.click()
+
+    return 'Logout Succesfull' 
+
+  } catch (error) {
+    console.log(err);
+    return err;
+  }
+}
+
 module.exports = {
   sendWhastAppMessage,
-  getQRImage
+  getQRImage,
+  isLogged,
+  logoutUser
 }
 
 // ENVIAR MENSAJES

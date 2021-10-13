@@ -1,3 +1,17 @@
-2021/10/08-16:18:49.554 a8c9 Reusing MANIFEST /home/anderson/Escritorio/Proyectos de Node.js/puppeteer-ws/~/.config/chromium/Default/IndexedDB/https_web.whatsapp.com_0.indexeddb.leveldb/MANIFEST-000001
-2021/10/08-16:18:49.555 a8c9 Recovering log #39
-2021/10/08-16:18:49.642 a8c9 Reusing old log /home/anderson/Escritorio/Proyectos de Node.js/puppeteer-ws/~/.config/chromium/Default/IndexedDB/https_web.whatsapp.com_0.indexeddb.leveldb/000039.log 
+2021/10/13-12:43:35.358 4019 Reusing MANIFEST /home/anderson/Escritorio/Proyectos de Node.js/puppeteer-ws/~/.config/chromium/Default/IndexedDB/https_web.whatsapp.com_0.indexeddb.leveldb/MANIFEST-000001
+2021/10/13-12:43:35.358 4019 Recovering log #76
+2021/10/13-12:43:35.467 4019 Reusing old log /home/anderson/Escritorio/Proyectos de Node.js/puppeteer-ws/~/.config/chromium/Default/IndexedDB/https_web.whatsapp.com_0.indexeddb.leveldb/000076.log 
+2021/10/13-12:44:18.804 4019 Level-0 table #81: started
+2021/10/13-12:44:18.908 4019 Level-0 table #81: 714901 bytes OK
+2021/10/13-12:44:18.911 4019 Delete type=0 #76
+2021/10/13-12:44:18.913 4019 Manual compaction at level-0 from '\x00\x0e\x00\x00\x00' @ 72057594037927935 : 1 .. '\x00\x0f\x00\x00\x00' @ 0 : 0; will stop at (end)
+2021/10/13-12:44:19.238 4021 Level-0 table #83: started
+2021/10/13-12:44:19.254 4021 Level-0 table #83: 173094 bytes OK
+2021/10/13-12:44:19.259 4021 Delete type=0 #80
+2021/10/13-12:44:19.259 4021 Manual compaction at level-0 from '\x00\x0d\x00\x00\x00' @ 72057594037927935 : 1 .. '\x00\x0e\x00\x00\x00' @ 0 : 0; will stop at '\x00\x0d\x04\x02\x01\x0e\x00w\x00h\x00a\x00t\x00s\x00a\x00p\x00p\x00-\x00m\x00u\x00t\x00e\x00x' @ 595304 : 0
+2021/10/13-12:44:19.260 4021 Compacting 1@0 + 1@1 files
+2021/10/13-12:44:19.304 4021 Generated table #84@0: 9242 keys, 76900 bytes
+2021/10/13-12:44:19.304 4021 Compacted 1@0 + 1@1 files => 76900 bytes
+2021/10/13-12:44:19.309 4021 compacted to: files[ 0 1 1 0 0 0 0 ]
+2021/10/13-12:44:19.309 4021 Delete type=2 #83
+2021/10/13-12:44:19.310 4020 Manual compaction at level-0 from '\x00\x0d\x04\x02\x01\x0e\x00w\x00h\x00a\x00t\x00s\x00a\x00p\x00p\x00-\x00m\x00u\x00t\x00e\x00x' @ 595304 : 0 .. '\x00\x0e\x00\x00\x00' @ 0 : 0; will stop at (end)

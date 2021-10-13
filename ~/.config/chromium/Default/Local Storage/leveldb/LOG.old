@@ -1,3 +1,15 @@
-2021/10/08-16:29:32.362 3 Reusing MANIFEST /home/anderson/Escritorio/Proyectos de Node.js/puppeteer-ws/~/.config/chromium/Default/Local Storage/leveldb/MANIFEST-000001
-2021/10/08-16:29:32.363 3 Recovering log #16
-2021/10/08-16:29:32.365 3 Reusing old log /home/anderson/Escritorio/Proyectos de Node.js/puppeteer-ws/~/.config/chromium/Default/Local Storage/leveldb/000016.log 
+2021/10/13-12:43:31.758 5 Reusing MANIFEST /home/anderson/Escritorio/Proyectos de Node.js/puppeteer-ws/~/.config/chromium/Default/Local Storage/leveldb/MANIFEST-000001
+2021/10/13-12:43:31.760 5 Recovering log #21
+2021/10/13-12:43:31.762 5 Reusing old log /home/anderson/Escritorio/Proyectos de Node.js/puppeteer-ws/~/.config/chromium/Default/Local Storage/leveldb/000021.log 
+2021/10/13-12:46:35.641 5 Level-0 table #25: started
+2021/10/13-12:46:35.677 5 Level-0 table #25: 31033 bytes OK
+2021/10/13-12:46:35.682 5 Delete type=0 #21
+2021/10/13-12:46:35.683 5 Compacting 4@0 + 1@1 files
+2021/10/13-12:46:35.692 5 Generated table #26@0: 26 keys, 5804 bytes
+2021/10/13-12:46:35.693 5 Compacted 4@0 + 1@1 files => 5804 bytes
+2021/10/13-12:46:35.697 5 compacted to: files[ 0 1 0 0 0 0 0 ]
+2021/10/13-12:46:35.699 5 Delete type=2 #14
+2021/10/13-12:46:35.699 5 Delete type=2 #25
+2021/10/13-12:46:35.699 5 Delete type=2 #22
+2021/10/13-12:46:35.699 5 Delete type=2 #16
+2021/10/13-12:46:35.699 5 Delete type=2 #19

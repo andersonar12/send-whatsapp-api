@@ -1,6 +1,14 @@
-2021/10/08-16:34:19.863 aee5 Reusing MANIFEST /home/anderson/Escritorio/Proyectos de Node.js/puppeteer-ws/~/.config/chromium/Default/IndexedDB/https_web.whatsapp.com_0.indexeddb.leveldb/MANIFEST-000001
-2021/10/08-16:34:19.863 aee5 Recovering log #39
-2021/10/08-16:34:20.045 aee5 Reusing old log /home/anderson/Escritorio/Proyectos de Node.js/puppeteer-ws/~/.config/chromium/Default/IndexedDB/https_web.whatsapp.com_0.indexeddb.leveldb/000039.log 
-2021/10/08-16:41:29.720 b1cd Level-0 table #44: started
-2021/10/08-16:41:29.865 b1cd Level-0 table #44: 1219925 bytes OK
-2021/10/08-16:41:29.873 b1cd Delete type=0 #39
+2021/10/13-12:48:06.307 4261 Reusing MANIFEST /home/anderson/Escritorio/Proyectos de Node.js/puppeteer-ws/~/.config/chromium/Default/IndexedDB/https_web.whatsapp.com_0.indexeddb.leveldb/MANIFEST-000001
+2021/10/13-12:48:06.308 4261 Recovering log #82
+2021/10/13-12:48:06.365 4261 Reusing old log /home/anderson/Escritorio/Proyectos de Node.js/puppeteer-ws/~/.config/chromium/Default/IndexedDB/https_web.whatsapp.com_0.indexeddb.leveldb/000082.log 
+2021/10/13-12:48:06.366 4261 Delete type=2 #81
+2021/10/13-12:48:36.328 4283 Level-0 table #87: started
+2021/10/13-12:48:36.356 4283 Level-0 table #87: 370845 bytes OK
+2021/10/13-12:48:36.360 4283 Delete type=0 #82
+2021/10/13-12:48:36.361 4283 Manual compaction at level-0 from '\x00\x0f\x00\x00\x00' @ 72057594037927935 : 1 .. '\x00\x10\x00\x00\x00' @ 0 : 0; will stop at '\x00\x10\x00\x00\x05' @ 609364 : 1
+2021/10/13-12:48:36.361 4283 Compacting 1@0 + 1@1 files
+2021/10/13-12:48:36.398 4283 Generated table #88@0: 12589 keys, 104467 bytes
+2021/10/13-12:48:36.398 4283 Compacted 1@0 + 1@1 files => 104467 bytes
+2021/10/13-12:48:36.403 4283 compacted to: files[ 0 1 1 0 0 0 0 ]
+2021/10/13-12:48:36.404 4283 Delete type=2 #87
+2021/10/13-12:48:36.404 4283 Manual compaction at level-0 from '\x00\x10\x00\x00\x05' @ 609364 : 1 .. '\x00\x10\x00\x00\x00' @ 0 : 0; will stop at (end)

@@ -6,8 +6,15 @@ block content
       a(class="navbar-brand" href="#")
         img(src="logo-wit.png" alt="" width="110"  class="d-inline-block align-text-top")
 
+  div(class="container-fluid")
+    div(class="row mt-2 d-flex justify-content-center")
+      div(class="col-md-6 text-center")
+        h4 El usuario logueado actualmente es:
+        h2#user ...
+        button(type="button" class="btn btn-warning")#logoutBtn Cerrar Sesion
+
   div(class="container-fluid")#container 
-    div(class="row mt-4 pt-4 d-flex justify-content-around")
+    div(class="row pt-2 d-flex justify-content-around")
       div(class="col-md-6 col-12 d-flex align-items-center justify-content-center ")
         div
           img#code(alt="QR CODE")
@@ -22,6 +29,6 @@ block content
         p(class="text-center my-2") Espere el codigo QR al lado izquierdo.
 
 
-  footer(class="text-center mt-5")
+  footer(class="text-center mt-1")
     img(src="logo-wit-dark.png" width="80" )
     p(class="mb-0 text-center") Copyright © 2021 WIT SPA, Los Conquistadores 2440, Chile, RM, Santiago

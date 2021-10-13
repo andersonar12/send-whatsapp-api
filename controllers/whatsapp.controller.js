@@ -1,4 +1,4 @@
-const { getQRImage, sendWhastAppMessage } = require("../whats-app");
+const { getQRImage, sendWhastAppMessage, isLogged, logoutUser} = require("../whats-app");
 
 exports.getQRfromWs = async (req, res, next) => {
   console.log('SOLICITUD ENTRANDO');
@@ -41,6 +41,45 @@ exports.sendMessage = async (req, res, next) => {
     res.status(500).json({
       status: "fail",
       message: "Unable to send message.",
+    });
+  }
+};
+
+exports.checkLoggin = async (req, res, next) => {
+  let userProfile = ''
+  console.log('Checking Login...');
+  try {
+    userProfile = await isLogged();
+
+    console.log('Usuario Logueado:',userProfile);
+
+    res.status(200).json({
+      status: "success",
+      userProfile,
+    });
+  } catch (err) {
+    res.status(500).json({
+      status: "fail",
+      message: "Unable to check login",
+    });
+  }
+};
+
+exports.logoutUser = async (req, res, next) => {
+  console.log('Logout User Processing...');
+  try {
+    const msg = await logoutUser();
+
+    console.log(msg);
+
+    res.status(200).json({
+      status: "success",
+      msg,
+    });
+  } catch (err) {
+    res.status(500).json({
+      status: "fail",
+      message: "Logout Failed",
     });
   }
 };

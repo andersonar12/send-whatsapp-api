@@ -5,10 +5,9 @@ const app = express();
 
 const whatsAppRoutes = require('./routes/whatsapp.route');
 const viewsController = require('./controllers/views.controller');
-const whatsapp = require('./whats-app');
+/* const whatsapp = require('./whats-app'); */
 
-
-
+//CORS
 app.use((req, res, next) => {
     res.header('Access-Control-Allow-Origin', '*');
     res.header('Access-Control-Allow-Headers', 'Authorization, X-API-KEY, Origin, X-Requested-With, Content-Type, Accept, Access-Control-Allow-Request-Method');
@@ -28,7 +27,6 @@ app.use(express.static(path.join(__dirname, 'public/img')))
 app.use(express.json());
 
 app.get('/signin', viewsController.signin);
-
 app.use('/whatsapp', whatsAppRoutes);
 
 
