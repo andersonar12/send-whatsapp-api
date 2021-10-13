@@ -13,6 +13,7 @@ const initBrowser = async () =>{
 
   try {
     browser = await puppeteer.launch({
+      /* headless:false, */
       userDataDir: "~/.config/chromium",
       args : [
         '--no-sandbox'
@@ -72,12 +73,19 @@ const sendWhastAppMessage = async (code, phone, message) => {
       "#main > footer > div._2BU3P.tm2tP.copyable-area > div > div > div._2lMWa > div._3HQNh._1Ae7k > button",
       {timeout: 60000},
     );
+
+
   
-    // const target = await page.$(
-    //   "#main > footer > div._2BU3P.tm2tP.copyable-area > div > div > div._2lMWa > div._3HQNh._1Ae7k > button"
-    // );
+     const target = await page.$(
+       "#main > footer > div._2BU3P.tm2tP.copyable-area > div > div > div._2lMWa > div._3HQNh._1Ae7k > button"
+    );
   
-    await page.keyboard.press("Enter");
+    await target.click();
+
+    await page
+        .screenshot({ path: path.join(__dirname, 'public/img/chat.png') })
+        .then(() => 'tomado');
+
     
     return 'Mensage enviado.';
 
