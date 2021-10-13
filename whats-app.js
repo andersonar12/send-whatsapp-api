@@ -15,6 +15,10 @@ const initBrowser = async () =>{
     browser = await puppeteer.launch({
       headless: false,
       userDataDir: "~/.config/chromium",
+      args : [
+        '--no-sandbox',
+        '--disable-setuid-sandbox'
+      ]
     });  
   } catch(err) {
     console.log(err);

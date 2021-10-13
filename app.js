@@ -2,7 +2,7 @@ const express = require('express');
 const path = require('path');
 
 const app = express();
-const port = process.env.PORT || 3000
+const port = process.env.PORT || 3002
 const whatsAppRoutes = require('./routes/whatsapp.route');
 const viewsController = require('./controllers/views.controller');
 /* const whatsapp = require('./whats-app'); */
