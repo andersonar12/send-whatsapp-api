@@ -16,8 +16,7 @@ const initBrowser = async () =>{
       headless: false,
       userDataDir: "~/.config/chromium",
       args : [
-        '--no-sandbox',
-        '--disable-setuid-sandbox'
+        '--no-sandbox'
       ]
     });  
   } catch(err) {
