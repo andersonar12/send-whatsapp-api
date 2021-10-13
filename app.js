@@ -2,7 +2,7 @@ const express = require('express');
 const path = require('path');
 
 const app = express();
-
+const port = process.env.PORT || 3000
 const whatsAppRoutes = require('./routes/whatsapp.route');
 const viewsController = require('./controllers/views.controller');
 /* const whatsapp = require('./whats-app'); */
@@ -30,8 +30,8 @@ app.get('/signin', viewsController.signin);
 app.use('/whatsapp', whatsAppRoutes);
 
 
-app.listen(3002, () => {
-    console.log('conectado')
+app.listen(port,()=>{
+    console.log(`Listen in Port ${port}`);
 })
 
 
