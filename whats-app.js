@@ -71,7 +71,7 @@ const sendWhastAppMessage = async (code, phone, message) => {
   
     await page.waitForSelector(
       "#main > footer > div._2BU3P.tm2tP.copyable-area > div > div > div._2lMWa > div._3HQNh._1Ae7k > button",
-      {timeout: 60000},
+      {timeout: 40000},
     );
 
 
@@ -111,14 +111,14 @@ const isLogged = async ()=>{
 
     await page.waitForSelector(
       "#side > header > div.YtmXM > div > img",
-      /* { timeout: 60000 } */
+      { timeout: 45000 }
     );
 
-    const target = await page.$( "#side > header > div.YtmXM > div > img"); //cuando clickea imagen de perfil
+    const target = await page.$("#side > header > div.YtmXM > div > img"); //cuando clickea imagen de perfil
 
     await target.click();
 
-    const userProfile = await page.$('#app > div._1ADa8._3Nsgw.app-wrapper-web.font-fix.os-win > div._1XkO3.two > div._3ArsE > div.ldL67._2i3T7 > span > div._1N4rE > span > div.nBIOd.tm2tP.copyable-area > div > div:nth-child(2) > div._10Mbz.q_gDO > div._3mpG7._1M8UY > div > div._13NKt.copyable-text.selectable-text')
+    const userProfile = await page.$('div [contenteditable="false"]')
     let value = await page.evaluate(el => el.textContent, userProfile)
 
     return value //enviamos el Nombre de  Perfil de usuario
