@@ -6,7 +6,7 @@ exports.getQRfromWs = async (req, res, next) => {
   try {
     img = await getQRImage();
 
-    console.log(img);
+    /* console.log(img); */
 
     res.status(200).json({
       status: "success",
@@ -37,7 +37,7 @@ exports.sendMessage = async (req, res, next) => {
       message: "Whatsapp message sent succesfully",
     });
   } catch (err) {
-    console.log(err);
+    /* console.log(err); */
     res.status(500).json({
       status: "fail",
       message: "Unable to send message.",
@@ -47,11 +47,11 @@ exports.sendMessage = async (req, res, next) => {
 
 exports.checkLoggin = async (req, res, next) => {
   let userProfile = ''
-  console.log('Checking Login...');
+ /*  console.log('Checking Login...'); */
   try {
     userProfile = await isLogged();
 
-    console.log('Usuario Logueado:',userProfile);
+    /* console.log('Usuario Logueado:',userProfile); */
 
     res.status(200).json({
       status: "success",
@@ -66,11 +66,11 @@ exports.checkLoggin = async (req, res, next) => {
 };
 
 exports.logoutUser = async (req, res, next) => {
-  console.log('Logout User Processing...');
+  /* console.log('Logout User Processing...'); */
   try {
     const msg = await logoutUser();
 
-    console.log(msg);
+    /* console.log(msg); */
 
     res.status(200).json({
       status: "success",

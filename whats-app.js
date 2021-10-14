@@ -20,7 +20,7 @@ const initBrowser = async () =>{
       ]
     });  
   } catch(err) {
-    console.log(err);
+    console.log('Error Iniciando Browser',err);
   }
 }
 
@@ -51,7 +51,7 @@ const getQRImage = async () => {
     /* const path = "codigo-qr.png"; */
     /* console.log("QR-code does not exist:", path); */
   } catch (error) {
-    console.log("error con selector", error);
+    console.log("Error para obtener Codgi QR", error);
   }
 };
 
@@ -90,7 +90,7 @@ const sendWhastAppMessage = async (code, phone, message) => {
     return 'Mensage enviado.';
 
   } catch(err) {
-    console.log(err);
+    console.log("Error en envio de Mensaje de Whataspp",err);
     return err;
   }
 }
@@ -124,7 +124,7 @@ const isLogged = async ()=>{
     return value //enviamos el Nombre de  Perfil de usuario
 
   } catch (error) {
-    console.log(err);
+    console.log("Error chequeando si usuario esta logueado: ",err);
     return err;
   }
 }
@@ -158,7 +158,7 @@ const logoutUser = async ()=>{
     return 'Logout Succesfull' 
 
   } catch (error) {
-    console.log(err);
+    console.log("Error intentando Cerrar Sesion : ",err);
     return err;
   }
 }
