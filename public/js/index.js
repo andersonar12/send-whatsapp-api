@@ -21,7 +21,7 @@ const login = () => {
           '<span class="material-icons">qr_code_2</span> <p class="mb-0">Solicitar Codigo QR.</p>';
         console.log(res);
 
-        codeImg.setAttribute("src", `img/${res.data.img}`);
+        codeImg.setAttribute("src", `../img/${res.data.img}`);
         loginBtn.style.display = "none";
       } catch (err) {
         console.log(err);

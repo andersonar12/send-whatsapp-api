@@ -51,7 +51,7 @@ const getQRImage = async () => {
     /* const path = "codigo-qr.png"; */
     /* console.log("QR-code does not exist:", path); */
   } catch (error) {
-    console.log("Error para obtener Codgi QR", error);
+    console.log("Error para obtener Codigo QR", error);
   }
 };
 
