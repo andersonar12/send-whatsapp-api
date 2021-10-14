@@ -4,7 +4,6 @@ const path = require('path');
 const app = express();
 const port = process.env.PORT || 3002
 const whatsAppRoutes = require('./routes/whatsapp.route');
-const viewsController = require('./controllers/views.controller');
 /* const whatsapp = require('./whats-app'); */
 
 //CORS
@@ -26,7 +25,6 @@ app.use(express.static(path.join(__dirname, 'public/img')))
 
 app.use(express.json());
 
-app.get('/signin', viewsController.signin);
 app.use('/whatsapp', whatsAppRoutes);
 
 
