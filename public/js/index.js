@@ -33,29 +33,37 @@ const login = () => {
 
 const checkLogin = async () => {
   try {
-    userDesc.innerHTML = 'Loading...<div class="spinner-border text-dark" role="status"><span class="visually-hidden">Loading...</span> </div> ';
-    logoutBtn.setAttribute("disabled", "")
+    userDesc.innerHTML =
+      'Loading...<div class="spinner-border text-dark" role="status"><span class="visually-hidden">Loading...</span> </div> ';
+    logoutBtn.setAttribute("disabled", "");
     loginBtn.setAttribute("disabled", "");
 
-    let res = "";
-    res = await axios({
+    const {
+      data: { logStatus },
+    } = await axios({
       method: "GET",
       url: "/whatsapp/check-login",
     });
 
-    console.log(res);
-    userDesc.innerHTML = res.data.userProfile;
-    /* loginBtn.removeAttribute("disabled"); */
-    logoutBtn.removeAttribute("disabled");
+    if (logStatus.isLogged) {
+      userDesc.innerHTML = logStatus.user;
+      /* loginBtn.removeAttribute("disabled"); */
+      logoutBtn.removeAttribute("disabled");
+    } else {
+      userDesc.innerHTML = "No hay usuario logueado";
+      console.log(err);
+      loginBtn.removeAttribute("disabled");
+
+      alert("No hay usuario logueado");
+    }
   } catch (err) {
     userDesc.innerHTML = "No hay usuario logueado";
     console.log(err);
     loginBtn.removeAttribute("disabled");
 
-    alert('No hay usuario logueado');
+    alert("No hay usuario logueado");
   }
 };
-
 
 checkLogin();
 login();
@@ -63,8 +71,8 @@ login();
 logoutBtn.addEventListener("click", async () => {
   try {
     userDesc.innerHTML = "Loading...";
-    loginBtn.setAttribute("disabled","");
-    logoutBtn.setAttribute("disabled","");
+    loginBtn.setAttribute("disabled", "");
+    logoutBtn.setAttribute("disabled", "");
 
     res = await axios({
       method: "GET",
