@@ -1,7 +1,6 @@
-const { getQRImage, sendWhastAppMessage, isLogged, logoutUser} = require("../whats-app");
+const { getQRImage, sendWhastAppMessage, checkLogStatus, logoutUser} = require("../whats-app");
 
 exports.getQRfromWs = async (req, res, next) => {
-  /* console.log('SOLICITUD ENTRANDO'); */
   let img = ''
   try {
     img = await getQRImage();
@@ -13,6 +12,7 @@ exports.getQRfromWs = async (req, res, next) => {
       img,
     });
   } catch (err) {
+    console.log(err);
     res.status(500).json({
       status: "fail",
       message: "Unable to get QR code from whatsapp.",
@@ -31,13 +31,22 @@ exports.sendMessage = async (req, res, next) => {
   }
 
   try {
-    await sendWhastAppMessage(code, phone, message);
-    res.status(200).json({
+    const { status } = await sendWhastAppMessage(code, phone, message);
+
+    if (status === 'error') {
+      return res.status(500).json({
+        status: "fail",
+        message: "Actualmente no hay dispositivo disponible para enviar tu mensaje.",
+      });
+    }
+
+    return res.status(200).json({
       status: "success",
-      message: "Whatsapp message sent succesfully",
+      message: "Mensaje enviado exitosamente.",
     });
+    
   } catch (err) {
-    /* console.log(err); */
+    console.log(err);
     res.status(500).json({
       status: "fail",
       message: "Unable to send message.",
@@ -46,18 +55,16 @@ exports.sendMessage = async (req, res, next) => {
 };
 
 exports.checkLoggin = async (req, res, next) => {
-  let userProfile = ''
- /*  console.log('Checking Login...'); */
   try {
-    userProfile = await isLogged();
+    const logStatus = await checkLogStatus();
 
-    /* console.log('Usuario Logueado:',userProfile); */
-
-    res.status(200).json({
+    return res.status(200).json({
       status: "success",
-      userProfile,
+      logStatus,
     });
+    
   } catch (err) {
+    console.log(err);
     res.status(500).json({
       status: "fail",
       message: "Unable to check login",
