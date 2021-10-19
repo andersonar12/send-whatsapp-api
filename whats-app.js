@@ -13,6 +13,10 @@ const initBrowser = async () => {
     userDataDir: "~/.config/chromium",
     args: ["--no-sandbox"],
   });
+
+  if (browser) {
+    console.log("Intialized Browser")
+  }
 };
 
 const getQRImage = async () => {
