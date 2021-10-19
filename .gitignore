@@ -43,3 +43,6 @@ testem.log
 # System Files
 .DS_Store
 Thumbs.db
+
+/public/img/codigo-qr-whatsapp.png
+/public/img/chat.png
