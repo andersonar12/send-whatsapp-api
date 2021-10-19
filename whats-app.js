@@ -9,7 +9,7 @@ let page;
 
 const initBrowser = async () => {
   browser = await puppeteer.launch({
-    headless: process.env.NODE_ENV === "production",
+    /* headless: process.env.NODE_ENV === "production", */
     userDataDir: "~/.config/chromium",
     args: ["--no-sandbox"],
   });
@@ -74,15 +74,15 @@ const sendWhastAppMessage = async (code, phone, message) => {
   );
 
   await page.waitForSelector(
-    "#main > footer > div._2BU3P.tm2tP.copyable-area > div > div > div._2lMWa > div._3HQNh._1Ae7k > button",
-    
+    "div [aria-label='Lista de mensajes. Presiona la tecla de flecha hacia la derecha en un mensaje para abrir su menú contextual.']",
+    {timeout: 80000},
   );
-
+  
   const target = await page.$(
     "#main > footer > div._2BU3P.tm2tP.copyable-area > div > div > div._2lMWa > div._3HQNh._1Ae7k > button"
   );
-
   await target.click();
+  await page.keyboard.press("Enter");
 
   await page
     .screenshot({ path: path.join(__dirname, "public/img/chat.png") })
