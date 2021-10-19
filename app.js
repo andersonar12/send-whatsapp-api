@@ -28,9 +28,9 @@ app.set("view engine", "pug");
 app.set("views", path.join(__dirname, "views"));
 
 // serving static files
-app.use(express.static(path.join(__dirname, "public")));
+app.use('/whatsapp', express.static(path.join(__dirname, "public")));
 /* Para las imagenes */
-app.use(express.static(path.join(__dirname, "public/img")));
+app.use('/whatsapp', express.static(path.join(__dirname, "public/img")));
 
 app.use(express.json());
 
