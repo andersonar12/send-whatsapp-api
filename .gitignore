@@ -44,5 +44,6 @@ testem.log
 .DS_Store
 Thumbs.db
 
+/public/img/codigo-qr.png
 /public/img/codigo-qr-whatsapp.png
 /public/img/chat.png
