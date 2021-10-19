@@ -9,7 +9,7 @@ let page;
 
 const initBrowser = async () => {
   browser = await puppeteer.launch({
-    /* headless: process.env.NODE_ENV === "production", */
+    headless: process.env.NODE_ENV === "production",
     userDataDir: "~/.config/chromium",
     args: ["--no-sandbox"],
   });
