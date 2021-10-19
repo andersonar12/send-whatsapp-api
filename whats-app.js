@@ -48,9 +48,6 @@ const getQRImage = async () => {
 };
 
 const sendWhastAppMessage = async (code, phone, message) => {
-  if (page) {
-    page.close();
-  }
 
   const { isLogged } = await checkLogStatus();
 
@@ -62,6 +59,12 @@ const sendWhastAppMessage = async (code, phone, message) => {
     };
   }
 
+  if (page) {
+    page.close();
+  }
+
+  page = await browser.newPage();
+
   await page.setUserAgent(
     "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/61.0.3163.100 Safari/537.36"
   );
@@ -71,12 +74,12 @@ const sendWhastAppMessage = async (code, phone, message) => {
   );
 
   await page.waitForSelector(
-    "#main > footer > div._2BU3P.tm2tP.copyable-area > div > div > div._2lMWa > div._3HQNh._1Ae7k > button",
+    "#main > footer > div._2BU3P.tm2tP.copyable-area > div > div > div._2lMWa > div._3HQNh._1Ae7k",
     { timeout: 15000 }
   );
 
   const target = await page.$(
-    "#main > footer > div._2BU3P.tm2tP.copyable-area > div > div > div._2lMWa > div._3HQNh._1Ae7k > button"
+    "#main > footer > div._2BU3P.tm2tP.copyable-area > div > div > div._2lMWa > div._3HQNh._1Ae7k"
   );
 
   await target.click();
