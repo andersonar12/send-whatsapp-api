@@ -74,12 +74,12 @@ const sendWhastAppMessage = async (code, phone, message) => {
   );
 
   await page.waitForSelector(
-    "#main > footer > div._2BU3P.tm2tP.copyable-area > div > div > div._2lMWa > div._3HQNh._1Ae7k",
-    { timeout: 15000 }
+    "#main > footer > div._2BU3P.tm2tP.copyable-area > div > div > div._2lMWa > div._3HQNh._1Ae7k > button",
+    
   );
 
   const target = await page.$(
-    "#main > footer > div._2BU3P.tm2tP.copyable-area > div > div > div._2lMWa > div._3HQNh._1Ae7k"
+    "#main > footer > div._2BU3P.tm2tP.copyable-area > div > div > div._2lMWa > div._3HQNh._1Ae7k > button"
   );
 
   await target.click();
