@@ -51,7 +51,6 @@ const checkLogin = async () => {
       logoutBtn.removeAttribute("disabled");
     } else {
       userDesc.innerHTML = "No hay usuario logueado";
-      console.log(err);
       loginBtn.removeAttribute("disabled");
 
       alert("No hay usuario logueado");
