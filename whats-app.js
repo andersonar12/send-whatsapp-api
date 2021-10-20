@@ -69,9 +69,9 @@ const sendWhastAppMessage = async (code, phone, message) => {
 
   page = await browser.newPage();
 
-  await page.setUserAgent(
+  /* await page.setUserAgent(
     "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/61.0.3163.100 Safari/537.36"
-  );
+  ); */
 
   await page.goto(
     `https://web.whatsapp.com/send?phone=${code}${phone}&text=${message}`
@@ -103,9 +103,9 @@ const checkLogStatus = async () => {
 
     page = await browser.newPage();
 
-    await page.setUserAgent(
+    /* await page.setUserAgent(
       "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/61.0.3163.100 Safari/537.36"
-    );
+    ); */
 
     await page.goto(`https://web.whatsapp.com/`);
 
@@ -134,9 +134,9 @@ const logoutUser = async () => {
 
     page = await browser.newPage();
 
-    await page.setUserAgent(
+    /* await page.setUserAgent(
       "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/61.0.3163.100 Safari/537.36"
-    );
+    ); */
 
     await page.goto(`https://web.whatsapp.com/`);
 
