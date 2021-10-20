@@ -27,9 +27,9 @@ const getQRImage = async () => {
   }
 
   page = await browser.newPage();
-  await page.setUserAgent(
+  /* await page.setUserAgent(
     "5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/93.0.4577.0 Safari/537.36"
-  );
+  ); */
   await page.goto("https://web.whatsapp.com");
 
   try {
@@ -71,9 +71,9 @@ const sendWhastAppMessage = async (code, phone, message) => {
 
   page = await browser.newPage();
 
-  await page.setUserAgent(
+  /* await page.setUserAgent(
     "5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/93.0.4577.0 Safari/537.36"
-  );
+  ); */
 
   await page.goto(
     `https://web.whatsapp.com/send?phone=${code}${phone}&text=${message}`
@@ -105,10 +105,10 @@ const checkLogStatus = async () => {
 
     page = await browser.newPage();
 
-    await page.setUserAgent(
+    /* await page.setUserAgent(
       "5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/93.0.4577.0 Safari/537.36"
     );
-
+ */
     await page.goto(`https://web.whatsapp.com/`);
 
     await page.waitForSelector("#side > header > div.YtmXM > div > img", {
@@ -136,9 +136,9 @@ const logoutUser = async () => {
 
     page = await browser.newPage();
 
-    await page.setUserAgent(
+    /* await page.setUserAgent(
       "5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/93.0.4577.0 Safari/537.36"
-    );
+    ); */
 
     await page.goto(`https://web.whatsapp.com/`);
 
