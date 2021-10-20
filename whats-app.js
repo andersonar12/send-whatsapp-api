@@ -31,9 +31,14 @@ const getQRImage = async () => {
   await page.goto("https://web.whatsapp.com");
 
   try {
+
+    await page
+    .screenshot({ path: path.join(__dirname, "public/img/qr-page.png") })
+    .then(() => "qr-page Screenshoot")
+
     await page.waitForSelector(
       "#app > div._1ADa8.nMnIl.app-wrapper-web.font-fix > div > div.landing-window > div.landing-main > div > div._25pwu > div > canvas",
-      { timeout: 60000 }
+      { timeout: 120000 }
     );
 
     return page
