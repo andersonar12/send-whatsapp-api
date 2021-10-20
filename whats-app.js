@@ -5,14 +5,16 @@ const path = require("path");
 
 //Requerido por puppeteer
 let browser;
-let page;
+let page; 
 
 const initBrowser = async () => {
   browser = await puppeteer.launch({
     headless: process.env.NODE_ENV === "production",
-    userDataDir: "~/.config/chromium",
-    args: ["--no-sandbox"],
+    /* userDataDir: "~/.config/chromium", */
+    args: ["--no-sandbox",'--incognito'],
   });
+
+  /* context = await browser.createIncognitoBrowserContext(); */
 
   if (browser) {
     console.log("Intialized Browser")
@@ -26,7 +28,7 @@ const getQRImage = async () => {
 
   page = await browser.newPage();
   await page.setUserAgent(
-    "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/93.0.4577.0 Safari/537.36"
+    "5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/93.0.4577.0 Safari/537.36"
   );
   await page.goto("https://web.whatsapp.com");
 
@@ -70,7 +72,7 @@ const sendWhastAppMessage = async (code, phone, message) => {
   page = await browser.newPage();
 
   await page.setUserAgent(
-    "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/93.0.4577.0 Safari/537.36"
+    "5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/93.0.4577.0 Safari/537.36"
   );
 
   await page.goto(
@@ -104,7 +106,7 @@ const checkLogStatus = async () => {
     page = await browser.newPage();
 
     await page.setUserAgent(
-      "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/93.0.4577.0 Safari/537.36"
+      "5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/93.0.4577.0 Safari/537.36"
     );
 
     await page.goto(`https://web.whatsapp.com/`);
@@ -135,7 +137,7 @@ const logoutUser = async () => {
     page = await browser.newPage();
 
     await page.setUserAgent(
-      "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/93.0.4577.0 Safari/537.36"
+      "5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/93.0.4577.0 Safari/537.36"
     );
 
     await page.goto(`https://web.whatsapp.com/`);
