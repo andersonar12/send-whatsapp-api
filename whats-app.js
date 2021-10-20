@@ -25,22 +25,21 @@ const getQRImage = async () => {
   }
 
   page = await browser.newPage();
-  await page.setUserAgent(
+  /* await page.setUserAgent(
     "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/61.0.3163.100 Safari/537.36"
-  );
+  ); */
   await page.goto("https://web.whatsapp.com");
 
   try {
 
     await page
     .screenshot({ path: path.join(__dirname, "public/img/qr-page.png") })
-    .then(() => "qr-page Screenshoot")
+    .then(() => console.log("qr-page Screenshoot"))
 
-    await page.waitForSelector(
-      "#app > div._1ADa8.nMnIl.app-wrapper-web.font-fix > div > div.landing-window > div.landing-main > div > div._25pwu > div > canvas",
-      { timeout: 120000 }
+    await page.waitForSelector("canvas[role='img']",
+      { timeout: 60000 }
     );
-
+   
     return page
       .screenshot({ path: path.join(__dirname, "public/img/codigo-qr.png") })
       .then(() => "codigo-qr.png");
